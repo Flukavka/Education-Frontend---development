@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09.08.2022 Homework-1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        .bigSquare {
+            width: 250px;
+            height: 200px;
+        }
+
+        .squareRed {
+            border: 1px solid red;
+        }
+
+        .squarePurple {
+            border: 1px solid purple;
+        }
+
+        .squareGreen {
+            border: 1px solid green;
+        }
+
+        .squareRedSolid {
+            background-color: red;
+        }
+
+        .squarePurpleSolid {
+            background-color: purple;
+            top: 25px;
+            left: 25px;
+        }
+
+        .squareGreenSolid {
+            background-color: green;
+            top: 50px;
+            left: 50px;
+        }
+
+        .bigSquareNoSolid {
+            border: 1px solid green;
+        }
+
+        .bigSquareSolid {
+            background-color: green;
+        }
+
+        .whiteSquare {
+            background-color: white;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 16px;
+            margin-top: 32px;
+        }
+
+        @media (min-width: 280px) {
+            .container {
+                grid-template-rows: repeat(6, 1fr);
+                grid-template-columns: 1fr;
+                grid-template-areas: "first"
+                    "second"
+                    "third"
+                    "fourth"
+                    "fifth"
+                    "sixth";
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "first second"
+                    "third fourth"
+                    "fifth sixth";
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .container {
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: "first second third"
+                    "fourth fifth sixth";
+            }
+        }
+
+        .firstBlock {
+            grid-area: first;
+        }
+
+        .secondBlock {
+            grid-area: second;
+            align-self: center;
+            padding: 20px;
+        }
+
+        .thirdBlock {
+            grid-area: third;
+        }
+
+        .fourthBlock {
+            grid-area: fourth;
+        }
+
+        .fifthBlock {
+            grid-area: fifth;
+        }
+
+        .sixthBlock {
+            grid-area: sixth;
+        }
+
+        .firstBlock,
+        .secondBlock,
+        .thirdBlock,
+        .fourthBlock,
+        .fifthBlock,
+        .sixthBlock {
+            position: relative;
+        }
+
+        .firstBlockSquarePurple {
+            top: 75px;
+            left: 75px;
+        }
+
+        .firstBlockSquareGreen {
+            top: 150px;
+            left: 150px;
+        }
+
+        .secondBlockSquarePurple {
+            left: 95px;
+        }
+
+        .secondBlockSquareGreen {
+            left: 170px;
+        }
+
+        .thirdBlockSquareRed {
+            left: 150px;
+        }
+
+        .thirdBlockSquarePurple {
+            top: 30px;
+            left: 180px;
+        }
+
+        .thirdBlockSquareGreen {
+            top: 60px;
+            left: 210px;
+        }
+
+        .fifthBlockSquareRed {
+            top: 50px;
+            left: 50px;
+        }
+
+        .whiteSquareFirst {
+            top: 25px;
+            left: 25px;
+        }
+
+        .whiteSquareSecond {
+            bottom: 25px;
+            left: 175px;
+        }
+
+        .link {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            display: inline-flex;
+            color: black;
+        }
+
+        .link>img {
+            margin-left: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="link" href="09-08-22-hw2.html">Ссылка на вторую работу
+        <img src="img/arrow.png" alt="arrow">
+    </a>
+    <div class="container">
+        <div class="block firstBlock">
+            <div class="square squareRed firstBlockSquareRed"></div>
+            <div class="square squarePurple firstBlockSquarePurple"></div>
+            <div class="square squareGreen firstBlockSquareGreen"></div>
+        </div>
+        <div class="block secondBlock">
+            <div class="square squareRed secondBlockSquareRed"></div>
+            <div class="square squarePurple secondBlockSquarePurple"></div>
+            <div class="square squareGreen secondBlockSquareGreen"></div>
+        </div>
+        <div class="block thirdBlock">
+            <div class="square squareRed thirdBlockSquareRed"></div>
+            <div class="square squarePurple thirdBlockSquarePurple"></div>
+            <div class="square squareGreen thirdBlockSquareGreen"></div>
+        </div>
+        <div class="block fourthBlock">
+            <div class="square squareRedSolid"></div>
+            <div class="square squarePurpleSolid"></div>
+            <div class="square squareGreenSolid"></div>
+        </div>
+        <div class="block fifthBlock">
+            <div class="bigSquare bigSquareNoSolid">
+                <div class="square squareRed fifthBlockSquareRed"></div>
+            </div>
+
+        </div>
+        <div class="block sixthBlock">
+            <div class="bigSquare bigSquareSolid">
+                <div class="square whiteSquare whiteSquareFirst"></div>
+                <div class="square whiteSquare whiteSquareSecond"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

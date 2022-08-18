@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        /*
+        Запросить у пользователя ввод числа и сохранить это число в переменную a.
+        Если переменная a равна 10, то выведите 'Верно', иначе выведите 'Неверно'.
+        */
+
+        let a = +prompt('Введите число?');
+        if (a === 10) {
+            alert('Верно')
+        } else if (a > 10) {
+            alert('Неверно, введите значение меньше');
+        } else if (a < 10) {
+            alert('Неверно, введите значение больше');
+        }
+    </script>
+</body>
+
+</html>

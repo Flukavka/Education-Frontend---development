@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        /*Даны два массива: ['a', 'b', 'c'] и [1, 2, 3]. Объедините их вместе.*/
+
+        const arrayOne = ['a', 'b', 'c'];
+        const arrayTwo = [1, 2, 3];
+
+        const myArrayOne = [...arrayOne, ...arrayTwo]; // первый способ
+        const myArrayTwo = arrayOne.concat(arrayTwo); // второй способ (можно ещё push)
+
+        console.log(myArrayOne);
+        console.log(myArrayTwo)
+    </script>
+</body>
+
+</html>

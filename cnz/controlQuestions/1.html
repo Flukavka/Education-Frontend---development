@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict'
+
+        /* Программа хранит в двух переменных курс доллара и евро.В первой
+        переменной у вас хранится стоимость одного евро в рублях, во второй -
+        стоимость одного доллара в рублях. Вы спрашиваете у пользователя,
+        сколько рублей он хочет сконвертировать, получаете это
+        число и считаете.Результат надо вывести на страницу с помощью alert. */
+
+        const dollarExchangeRate = 60.48;
+        const euroExchangeRate = 62.88;
+        let rublesCount = +prompt('Сколько рублей вы хотите сконвертировать?');
+
+        let convertDollarValue = (rublesCount / dollarExchangeRate).toFixed(2);
+        let convertEuroValue = (rublesCount / euroExchangeRate).toFixed(2);
+
+        alert('В результате вы получите ' + convertDollarValue + ' долларов или '
+            + convertEuroValue + ' евро.');
+
+    </script>
+</body>
+
+</html>
