@@ -1,0 +1,176 @@
+/* @import "_variables"; */
+
+
+.nav-block-button {
+    border: none;
+}
+
+
+.jumbotron-color {
+    background-color: white;
+}
+
+.main-block {
+
+    &-heading {
+        font-weight: 400;
+        font-size: 2.5rem;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+            font-weight: 400;
+            font-size: 1.75rem;
+        }
+    }
+
+    &-paragraph {
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.my-skills-block {
+    &-heading {
+        font-weight: 400;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-item {
+        border: none;
+
+        &-heading {
+            font-weight: 400;
+        }
+
+        &-paragraph {
+            font-weight: 300;
+        }
+
+        &-link {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+}
+
+.my-works-block {
+    &-heading {
+        font-weight: 300;
+    }
+
+    &-text {
+        font-size: 0.8rem;
+        font-weight: 300;
+
+        &-link {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer-block {
+    background-image: url(../img/newfooter.jpg);
+    min-height: 12rem;
+    padding: 1rem 0;
+
+    &-content {
+        margin-top: 2rem;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        &-heading {
+            color: white;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        &R {
+
+            &-heading {
+                color: white;
+                margin-top: 1rem;
+            }
+
+            >form {
+                display: flex;
+                flex-direction: column;
+
+                >input,
+                textarea {
+                    padding: 0.75rem;
+                    max-width: 600px;
+                }
+
+                .btn {
+                    margin-top: 1.5rem;
+                    color: black;
+                    background-color: white;
+                    padding: 0.75rem 1.5rem;
+                    border: none;
+                    box-sizing: border-box;
+                    max-width: 300px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                margin-top: 2rem;
+            }
+        }
+
+        &L {
+
+            &-list {
+                background-color: rgba(107, 103, 103, 0.233);
+                padding: 0.5rem;
+                box-shadow: 0.4rem 0.4rem rgba(83, 83, 83, 0.400), -1rem -1rem rgba(99, 99, 97, 0.400);
+                max-width: 12.5rem;
+                margin-top: 2.5rem;
+
+                @media (max-width: 425px) {
+                    box-shadow: none;
+                }
+
+                .contacts {
+                    color: white;
+                    list-style-type: none;
+                }
+            }
+
+            &-icon {
+
+                &-form {
+                    max-width: 2.5rem;
+                    max-height: 2.5rem;
+
+                    @media(max-width: 767.9px) {
+                        max-width: 2rem;
+                        max-height: 2rem;
+                    }
+                }
+            }
+
+            /* &-freepik {
+    color: white;
+} */
+        }
+
+        @media (max-width: 425px) {
+            flex-direction: column;
+
+            >small {
+                padding: 0 0 1rem 1rem;
+                font-size: 70%;
+                font-weight: 300;
+            }
+        }
+    }
+}

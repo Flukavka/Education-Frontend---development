@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09.08.2022 Homework-1</title>
+    <style>
+        .link {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            display: inline-flex;
+            margin: 32px 32px;
+            color: black;
+        }
+
+        .link>img {
+            margin-left: 16px;
+        }
+
+        .bearHead {
+            margin: 40px 32px 0;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(5deg, brown, gold);
+            position: relative;
+        }
+
+        .eyes {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .highlight {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .eyeLeft {
+            top: 75px;
+            left: 75px;
+        }
+
+        .eyeRight {
+            top: 75px;
+            left: 175px
+        }
+
+        .ears {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(5deg, brown, gold);
+            border-radius: 50%;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .earLeft {
+            left: -16px;
+        }
+
+        .earRight {
+            left: 210px;
+        }
+
+        .nose {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            transform: rotate(225deg);
+            border-radius: 25px 25px 100%;
+            position: absolute;
+            top: 140px;
+            left: 130px;
+        }
+
+        .mouth {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            border-bottom: 16px solid black;
+            border-radius: 50%;
+            top: 44px;
+            left: 50px;
+        }
+
+        .bearBody {
+            margin: 0 32px 40px;
+            border-radius: 50%;
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(5deg, brown, gold, brown);
+            position: relative;
+        }
+
+        .bear {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stomach {
+            position: absolute;
+            border-radius: 50%;
+            width: 220px;
+            height: 260px;
+            background-color: black;
+            top: 164px;
+            left: 94px;
+            transform: rotate(94deg);
+        }
+    </style>
+</head>
+
+<body>
+    <a class="link" href="09-08-22-hw1.html">Ссылка на первую работу<img src="img/arrow.png" alt="arrow"></a>
+
+    <div class="bear">
+        <div class="bearHead">
+            <div class="eyes eyeLeft"></div>
+            <div class="eyes eyeRight"></div>
+            <div class="highlight eyeLeft"></div>
+            <div class="highlight eyeRight"></div>
+
+            <div class="ears earLeft"></div>
+            <div class="ears earRight"></div>
+
+            <div class="nose"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="bearBody">
+            <div class="stomach"></div>
+            <div class="hands handLeft"></div>
+            <div class="hands handRight"></div>
+            <div class="foots footLeft"></div>
+            <div class="foots footRight"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
