@@ -113,14 +113,8 @@
 .footer-block-contentL-list {
   background-color: rgba(107, 103, 103, 0.233);
   padding: 0.5rem;
-  box-shadow: 0.4rem 0.4rem rgba(83, 83, 83, 0.4), -1rem -1rem rgba(99, 99, 97, 0.4);
   max-width: 12.5rem;
   margin-top: 2.5rem;
-}
-@media (max-width: 425px) {
-  .footer-block-contentL-list {
-    box-shadow: none;
-  }
 }
 .footer-block-contentL-list .contacts {
   color: white;
