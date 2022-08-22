@@ -131,13 +131,8 @@
             &-list {
                 background-color: rgba(107, 103, 103, 0.233);
                 padding: 0.5rem;
-                box-shadow: 0.4rem 0.4rem rgba(83, 83, 83, 0.400), -1rem -1rem rgba(99, 99, 97, 0.400);
                 max-width: 12.5rem;
                 margin-top: 2.5rem;
-
-                @media (max-width: 425px) {
-                    box-shadow: none;
-                }
 
                 .contacts {
                     color: white;
