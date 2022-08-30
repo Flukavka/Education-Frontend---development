@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -16,24 +16,20 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .header-block {
-            padding: 1.5rem 0;
-        }
-
-        .heading {
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.5rem;
-        }
-
         .main-block {
             background-image: url(image/mainBackground.jpg);
             background-size: cover;
+            height: 100vh;
         }
 
         .main-block-content {
             display: flex;
             justify-content: space-between;
+        }
+
+        .main-block-content-items {
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .main-block-content-items-item {
@@ -70,6 +66,7 @@
         }
 
         .user-value {
+            flex-direction: column;
             justify-content: center;
             margin-top: 2rem;
             padding-left: 1rem;
@@ -92,7 +89,7 @@
         }
 
         .display {
-            width: 78%;
+            width: 100%;
             height: 200px;
             background-color: rgb(0 0 82 / 85%);
             margin-top: 2rem;
@@ -104,17 +101,63 @@
             padding: 1rem;
         }
 
-        @media (max-width: 991.9px) {
-            .display {
-                width: 100%;
+        .billAcc {
+            object-fit: contain;
+        }
+
+        .progressBar {
+            width: 100%;
+            background-color: rgb(0 0 82 / 85%);
+            margin-top: 3.2rem;
+            border-radius: 4px;
+            height: 1.5rem;
+        }
+
+        .progressBarLine {
+            color: white;
+            background-color: orange;
+            border-radius: 4px;
+            padding-left: 1rem;
+            animation: width100 3s backwards;
+            height: 1.5rem;
+        }
+
+        .billAcc {
+            margin-top: 2rem;
+        }
+
+        .moneyImg {
+            position: absolute;
+            top: 800px;
+        }
+
+        #rubFifty {
+            left: 258px;
+        }
+
+        #rubOneHundred {
+            left: 358px;
+        }
+
+        #rubFiveHundred {
+            left: 458px;
+        }
+
+        @keyframes width100 {
+            0% {
+                width: 0
             }
 
-            .user-value input {
-                padding: 1rem;
+            100% {
+                width: 100%;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 991.9px) {
+            .user-value input {
+                padding: 1rem;
+            }
+
             .main-block-content {
                 padding: 0 1rem;
                 align-content: center;
@@ -133,122 +176,155 @@
             .user-value input::placeholder {
                 font-size: 1.0rem;
             }
+
+            .main-block-content-items-item-btn {
+                width: 45px;
+                height: 45px;
+            }
         }
 
         @media (max-width: 767.9px) {
             .main-block-content {
                 flex-direction: column-reverse;
             }
+
+            .billAcc {
+                object-position: right;
+                margin-top: 14px;
+            }
+
+            .moneyImg {
+                width: 220px;
+                height: 92px;
+                top: 108px;
+            }
+
+            #rubFifty {
+                left: 32px;
+            }
+
+            #rubOneHundred {
+                left: 80px;
+            }
+
+            #rubFiveHundred {
+                left: 160px;
+            }
         }
 
-        @media (max-width: 320px) {
-            .heading {
-                font-size: 2rem;
+        @media (max-width: 630px) {
+            #rubFiveHundred {
+                left: 128px;
+            }
+
+            .display {
+                height: 120px;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+            .progressBar {
+                margin-top: 1rem;
+            }
+
+            .main-block-content-items-item {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                padding: 0.25rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .main-block-content-items-item span {
+                font-size: 0.88rem;
+            }
+
+            .user-value input {
+                border: 2px solid #ffa50091;
+                padding: 0.88rem;
+                font-size: 0.88rem;
+            }
+
+            .user-value input::placeholder {
+                font-size: 0.88rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container-md header-block">
-            <h1 class="heading">ВЗБОДРИСЬ</h1>
-        </div>
-    </header>
-
-    <main class="main-block">
-        <div class="container-md">
+    <div class="main-block">
+        <div class="container-md pb-4">
             <div class="row main-block-content">
                 <div class="col-md-6 main-block-content-items">
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(80, 'Американо')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(80, 'Американо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Американо</span>
                         <span>80 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(75, 'Эспрессо')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(75, 'Эспрессо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Эспрессо</span>
-                        <span>75</span><span>&#8381;</span>
+                        <span>75 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(114, 'Двойной эспрессо')"
-                            class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(114, 'Двойной эспрессо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Двойной эспрессо</span>
                         <span>114 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(93, 'Капучино')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(93, 'Капучино')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Капучино</span>
                         <span>93 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(96, 'Горячий шоколад')"
-                            class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(96, 'Горячий шоколад')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Горячий шоколад</span>
                         <span>96 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(41, 'Молоко')" class="main-block-content-items-item-btn"></button>
-                        <span>Молоко</span>
-                        <span>41 &#8381;</span>
+                        <button onclick="getCoffee(41, 'Молоко')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
+                        <span>Мокко</span>
+                        <span>120 &#8381;</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row user-value">
                         <input type="text" placeholder="Сколько у вас денег" id="money">
+                        <img src="image/billAcc.jpg" class="billAcc" alt="">
+                        <div class="progressBar">
+                        </div>
                         <div class="display"></div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <img src="image/50rub.jpg" id="rubFifty" class="moneyImg moneyImgFifty" alt="">
+            </div>
+            <div class="row">
+                <img src="image/100rub.jpg" id="rubOneHundred" class="moneyImg moneyImgOneHundred" alt="">
+            </div>
+            <div class="row">
+                <img src="image/500rub.jpg" id="rubFiveHundred" class="moneyImg moneyImgFiveHundred" alt="">
+            </div>
         </div>
-    </main>
-
-    <script>
-        'use strict'
-
-        let moneyEl = document.getElementById('money');
-        let displayEl = document.querySelector('.display');
-        let coin = null;
-
-        function getCoffee(price, name) {
-            if (moneyEl.value >= price) {
-                displayEl.innerHTML = 'Ваш ' + name + ' готов!';
-                moneyEl.value = moneyEl.value - price;
-            } else {
-                displayEl.innerHTML = 'На ' + name + ' недостаточно денег!';
-            }
-        };
-
-        function getChange(num) {
-            for (coin = 10; num >= 10;) {
-                num -= coin;
-                console.log(coin);
-            }
-            for (coin = 5; num >= 5;) {
-                num -= coin;
-                console.log(coin)
-            }
-            for (coin = 2; num >= 2;) {
-                num -= coin;
-                console.log(coin)
-            }
-            for (coin = 1; num >= 1;) {
-                console.log(num);
-                num -= 1
-            }
-        };
-
-        /* getChange(); */
+    </div>
 
 
-    </script>
+    <script src="index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

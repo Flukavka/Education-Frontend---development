@@ -1,15 +1,3 @@
-html,
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-}
-
-@media (min-width: 1269px) {
-  .containerMy {
-    margin: 0 auto;
-    width: 1140px;
-  }
-}
 .b-headerBlock {
   height: 60px;
   display: flex;
@@ -25,12 +13,12 @@ body {
 }
 @media (max-width: 375px) {
   .b-headerBlock_right__email {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 }
 @media (max-width: 1268.9px) {
   .b-headerBlock {
-    padding: 0 32px;
+    padding: 0 2rem;
     box-sizing: border-box;
   }
 }
@@ -41,6 +29,101 @@ body {
   }
 }
 
+.b-headerBot {
+  /* &_Menu_hidden {
+      background: linear-gradient(283.77deg, #C82020 -30.57%, #2717CF 88.6%);
+      width: 100%;
+      min-height: 24px;
+      z-index: 100;
+  } */
+}
+.b-headerBot_Menu {
+  background: linear-gradient(283.77deg, #C82020 -30.57%, #2717CF 88.6%);
+  width: 100%;
+  min-height: 24px;
+}
+.b-headerBot_Menu_block > a {
+  color: white;
+}
+.b-headerBot_Menu_block > a:not(last-child) {
+  margin-right: 1rem;
+}
+.b-headerBot_Menu_block > a:hover {
+  text-decoration: underline;
+  color: white;
+}
+.b-headerBot_Menu_block > a:active {
+  font-weight: 700;
+}
+@media (max-width: 1268.9px) {
+  .b-headerBot_Menu_block {
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 540px) {
+  .b-headerBot_Menu_block > a {
+    font-size: 0.88rem;
+  }
+}
+@media (max-width: 475.9px) {
+  .b-headerBot_Menu_block {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 2rem;
+  }
+  .b-headerBot_Menu_block > a:not(last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (min-width: 1269px) {
+  .containerMy {
+    margin: 0 auto;
+    width: 1140px;
+  }
+}
+/* .b-headerBlock {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_right {
+        display: flex;
+        align-items: center;
+
+        &__email {
+            margin-right: 40px;
+
+            @media (max-width: 375px) {
+                margin-right: 16px;
+            }
+        }
+    }
+
+    @media(max-width: 1268.9px) {
+        padding: 0 32px;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 375px) {
+
+        &_right,
+        &_left {
+            >a>img {
+                max-width: 24px;
+                max-height: 100%;
+            }
+        }
+    }
+} */
 .b-main {
   background-image: url(../img/mainbcg.jpg);
   background-repeat: no-repeat;
