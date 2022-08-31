@@ -1,3 +1,5 @@
+@import "_header.scss";
+
 html,
 body {
     margin: 0;
@@ -11,7 +13,7 @@ body {
     }
 }
 
-.b-headerBlock {
+/* .b-headerBlock {
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -45,7 +47,7 @@ body {
             }
         }
     }
-}
+} */
 
 .b-main {
     background-image: url(../img/mainbcg.jpg);

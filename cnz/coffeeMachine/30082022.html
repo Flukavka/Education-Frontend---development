@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        #dragElement {
+            background-color: rgb(20, 147, 220);
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        /* #disableBtn {
+            padding: 8px 12px;
+            font-size: 1rem;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="dragElement"></div>
+    <!-- <button id="disableBtn">Blocked color</button> -->
+    <script>
+        let dragElement = document.getElementById('dragElement');
+
+        dragElement.onmousedown = function () {
+            document.addEventListener('mousemove', moveElement);
+            document.onmouseup = function() {
+                document.removeEventListener('mousemove', moveElement);
+            }
+
+            function moveElement(event) {
+                let x = event.clientX - 100;
+                let y = event.clientY - 100;
+
+                dragElement.style.top = y + 'px';
+                dragElement.style.left = x + 'px';
+            };
+
+
+        };
+
+
+        /* dragElement.onclick = function() {
+            console.log('click')
+        } */
+
+        // так пишут, если нужно в последующем удалить слушатель
+        /* dragElement.addEventListener('click', clickHandler);
+        function clickHandler(){
+            console.log('clickHandler worked')
+        } */
+
+        /*
+        dragElement.addEventListener('click', changeColor);
+        function changeColor() {
+            let red = Math.round(Math.random()*255);
+            let green = Math.round(Math.random()*255);
+            let blue = Math.round(Math.random()*255);
+            dragElement.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        };
+
+        disableBtn.addEventListener('click', function(){
+            dragElement.removeEventListener('click', changeColor)
+        }) */
+
+        // dragElement.
+        /* document.addEventListener('click', function(event) {
+            let x = event.clientX - 100;
+            let y = event.clientY - 100;
+
+            dragElement.style.top = y + 'px';
+            dragElement.style.left = x + 'px';
+            //console.log(event);
+        }); */
+
+        /* document.addEventListener('mousemove', function(event) {
+            let x = event.clientX - 100;
+            let y = event.clientY - 100;
+
+            dragElement.style.top = y + 'px';
+            dragElement.style.left = x + 'px';
+            console.log(event);
+        }); */
+
+
+
+    </script>
+</body>
+
+</html>
