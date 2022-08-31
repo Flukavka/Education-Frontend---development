@@ -14,12 +14,9 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-        }
-
-        .main-block {
             background-image: url(image/mainBackground.jpg);
             background-size: cover;
-            height: 100vh;
+            background-attachment: fixed;
         }
 
         .main-block-content {
@@ -129,6 +126,12 @@
         .moneyImg {
             position: absolute;
             top: 800px;
+        }
+
+        img[src$='rub.jpg']:hover {
+            filter: contrast(130%);
+            filter: drop-shadow(0 0 0.75rem rgba(107, 20, 220, 0.315));
+            cursor: pointer;
         }
 
         #rubFifty {
@@ -305,13 +308,13 @@
                 </div>
             </div>
             <div class="row">
-                <img src="image/50rub.jpg" id="rubFifty" class="moneyImg moneyImgFifty" alt="">
+                <img src="image/50rub.jpg" id="rubFifty" data-bill-value="50" class="moneyImg moneyImgFifty" alt="">
             </div>
             <div class="row">
-                <img src="image/100rub.jpg" id="rubOneHundred" class="moneyImg moneyImgOneHundred" alt="">
+                <img src="image/100rub.jpg" id="rubOneHundred" data-bill-value="100" class="moneyImg moneyImgOneHundred" alt="">
             </div>
             <div class="row">
-                <img src="image/500rub.jpg" id="rubFiveHundred" class="moneyImg moneyImgFiveHundred" alt="">
+                <img src="image/500rub.jpg" id="rubFiveHundred" data-bill-value="500" class="moneyImg moneyImgFiveHundred" alt="">
             </div>
         </div>
     </div>
