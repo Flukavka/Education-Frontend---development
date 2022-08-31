@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NosarevaVS</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            margin-right: 0;
+        }
+
+        .smallQuadrat {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .pink {
+            background-color: #e46b93;
+        }
+
+        .green {
+            background-color: #b5c733;
+            top: 182px;
+        }
+
+        .oranje {
+            background-color: #f6aa31;
+            top: 358px;
+        }
+
+        .bigQuadrat {
+            background-color: #b8dcd5;
+            height: 500px;
+            width: 500px;
+        }
+
+        @media (max-width: 920px) {
+            .bigQuadrat {
+                height: 400px;
+                width: 400px;
+            }
+
+            .green {
+                top: 128px;
+            }
+
+            .oranje {
+                top: 246px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bigQuadrat {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 530px) {
+            body {
+                justify-content: start;
+            }
+
+            .pink {
+                top: 320px;
+            }
+
+            .green {
+                top: 320px;
+                left: 115px;
+            }
+
+            .oranje {
+                top: 320px;
+                left: 223px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="smallQuadrateBox">
+        <div class="smallQuadrat pink"></div>
+        <div class="smallQuadrat green"></div>
+        <div class="smallQuadrat oranje"></div>
+    </div>
+    <div class="bigQuadrat"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
