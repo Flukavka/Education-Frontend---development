@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -14,26 +14,19 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-        }
-
-        .header-block {
-            padding: 1.5rem 0;
-        }
-
-        .heading {
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.5rem;
-        }
-
-        .main-block {
             background-image: url(image/mainBackground.jpg);
             background-size: cover;
+            background-attachment: fixed;
         }
 
         .main-block-content {
             display: flex;
             justify-content: space-between;
+        }
+
+        .main-block-content-items {
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .main-block-content-items-item {
@@ -57,15 +50,24 @@
             width: 60px;
             height: 60px;
             background-color: orange;
+            box-shadow: inset 1px 2px 15px rgba(255, 255, 255, 0.5);
             border: none;
             border-radius: 50%;
             margin-right: 2rem;
             cursor: pointer;
         }
 
+        .main-block-content-items-item-btn:hover {
+            background-color: #6d569c;
+            box-shadow: inset 1px 2px 15px rgba(81, 25, 133, 0.562);
+        }
+
         .user-value {
+            flex-direction: column;
             justify-content: center;
             margin-top: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         .user-value input {
@@ -78,19 +80,92 @@
         }
 
         .user-value input::placeholder {
-            color: rgba(255, 255, 255, 0.699);
+            color: rgba(255, 255, 255, 0.7);
             font-family: inherit;
             font-size: 1.5rem;
         }
 
-        @media (max-width: 767.9px) {
-            .main-block-content {
-                flex-direction: column-reverse;
-                padding: 0 1rem;
+        .display {
+            width: 100%;
+            height: 200px;
+            background-color: rgb(0 0 82 / 85%);
+            margin-top: 2rem;
+            border-radius: 4px;
+            box-shadow: inset 1px 2px 15px rgb(32 62 114 / 40%);
+            border: 1px solid #ffa50091;
+            font-size: 1.5rem;
+            color: white;
+            padding: 1rem;
+        }
+
+        .billAcc {
+            object-fit: contain;
+        }
+
+        .progressBar {
+            width: 100%;
+            background-color: rgb(0 0 82 / 85%);
+            margin-top: 3.2rem;
+            border-radius: 4px;
+            height: 1.5rem;
+        }
+
+        .progressBarLine {
+            color: white;
+            background-color: orange;
+            border-radius: 4px;
+            padding-left: 1rem;
+            animation: width100 3s backwards;
+            height: 1.5rem;
+        }
+
+        .billAcc {
+            margin-top: 2rem;
+        }
+
+        .moneyImg {
+            position: absolute;
+            top: 800px;
+        }
+
+        img[src$='rub.jpg']:hover {
+            filter: contrast(130%);
+            filter: drop-shadow(0 0 0.75rem rgba(107, 20, 220, 0.315));
+            cursor: pointer;
+        }
+
+        #rubFifty {
+            left: 258px;
+        }
+
+        #rubOneHundred {
+            left: 358px;
+        }
+
+        #rubFiveHundred {
+            left: 458px;
+        }
+
+        @keyframes width100 {
+            0% {
+                width: 0
+            }
+
+            100% {
+                width: 100%;
             }
         }
 
-        @media (max-width: 524.9px) {
+        @media (max-width: 991.9px) {
+            .user-value input {
+                padding: 1rem;
+            }
+
+            .main-block-content {
+                padding: 0 1rem;
+                align-content: center;
+            }
+
             .main-block-content-items-item span {
                 font-size: 1rem;
             }
@@ -104,79 +179,148 @@
             .user-value input::placeholder {
                 font-size: 1.0rem;
             }
+
+            .main-block-content-items-item-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 767.9px) {
+            .main-block-content {
+                flex-direction: column-reverse;
+            }
+
+            .billAcc {
+                object-position: right;
+                margin-top: 14px;
+            }
+
+            .moneyImg {
+                width: 220px;
+                height: 92px;
+                top: 108px;
+            }
+
+            #rubFifty {
+                left: 32px;
+            }
+
+            #rubOneHundred {
+                left: 80px;
+            }
+
+            #rubFiveHundred {
+                left: 160px;
+            }
+        }
+
+        @media (max-width: 630px) {
+            #rubFiveHundred {
+                left: 128px;
+            }
+
+            .display {
+                height: 120px;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+            .progressBar {
+                margin-top: 1rem;
+            }
+
+            .main-block-content-items-item {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                padding: 0.25rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .main-block-content-items-item span {
+                font-size: 0.88rem;
+            }
+
+            .user-value input {
+                border: 2px solid #ffa50091;
+                padding: 0.88rem;
+                font-size: 0.88rem;
+            }
+
+            .user-value input::placeholder {
+                font-size: 0.88rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container-md header-block">
-            <h1 class="heading">ВЗБОДРИСЬ</h1>
-        </div>
-    </header>
-
-    <main class="main-block">
-        <div class="container-md">
+    <div class="main-block">
+        <div class="container-md pb-4">
             <div class="row main-block-content">
                 <div class="col-md-6 main-block-content-items">
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(80, 'Американо')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(80, 'Американо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Американо</span>
                         <span>80 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(75, 'Эспрессо')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(75, 'Эспрессо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Эспрессо</span>
-                        <span>75</span><span>&#8381;</span>
+                        <span>75 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(114, 'Двойной эспрессо')"
-                            class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(114, 'Двойной эспрессо')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Двойной эспрессо</span>
                         <span>114 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(93, 'Капучино')" class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(93, 'Капучино')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Капучино</span>
                         <span>93 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(96, 'Горячий шоколад')"
-                            class="main-block-content-items-item-btn"></button>
+                        <button onclick="getCoffee(96, 'Горячий шоколад')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
                         <span>Горячий шоколад</span>
                         <span>96 &#8381;</span>
                     </div>
                     <div class="row main-block-content-items-item">
-                        <button onclick="getCoffee(41, 'Молоко')" class="main-block-content-items-item-btn"></button>
-                        <span>Молоко</span>
-                        <span>41 &#8381;</span>
+                        <button onclick="getCoffee(41, 'Молоко')" class="main-block-content-items-item-btn"
+                            id="btn"></button>
+                        <span>Мокко</span>
+                        <span>120 &#8381;</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row user-value">
                         <input type="text" placeholder="Сколько у вас денег" id="money">
+                        <img src="image/billAcc.jpg" class="billAcc" alt="">
+                        <div class="progressBar">
+                        </div>
+                        <div class="display"></div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <img src="image/50rub.jpg" id="rubFifty" data-bill-value="50" class="moneyImg moneyImgFifty" alt="">
+            </div>
+            <div class="row">
+                <img src="image/100rub.jpg" id="rubOneHundred" data-bill-value="100" class="moneyImg moneyImgOneHundred" alt="">
+            </div>
+            <div class="row">
+                <img src="image/500rub.jpg" id="rubFiveHundred" data-bill-value="500" class="moneyImg moneyImgFiveHundred" alt="">
+            </div>
         </div>
-    </main>
+    </div>
 
-    <script>
-        'use strict'
 
-        function getCoffee(price, name) {
-            let moneyEl = document.getElementById('money');
-
-            if (moneyEl.value >= price) {
-                console.log('Ваш ' + name + ' готов!');
-                moneyEl = moneyEl.value - price;
-                document.getElementById('money').value = moneyEl;
-                console.log('Остаток: ' + moneyEl);
-            } else {
-                console.log('На ' + name + ' недостаточно денег!');
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

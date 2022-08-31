@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, input {
+            font-size: 1.5rem;
+        }
+
+        .edit {
+            cursor: pointer;
+            color: blue;
+            margin-left: 1rem;
+        }
+
+        .edit:hover {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <strong>Имя: </strong><span>ИВАН</span><span class="edit"
+        onclick="editName(this)">[редактировать]</span>
+    </p>
+    <p>
+        <strong>Фамилия: </strong><span>ИВАНОВ</span><span class="edit"
+        onclick="editName(this)">[редактировать]</span>
+    </p>
+    <script src="index.js"></script>
+</body>
+
+</html>
