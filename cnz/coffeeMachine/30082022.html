@@ -89,6 +89,90 @@
 
 
 
+// из файла коффе машины
+
+/**
+ * Функция отключает встроенный drag and drop для изображений
+ * @returns boolean false
+ */
+/* rubFiftyEl.ondragstart = function () {
+    return false;
+}; */
+
+
+
+/**
+ * Функция осуществляет drag and drop для изображения 50 руб. купюры
+ */
+/* rubFiftyEl.onmousedown = function () {
+    document.addEventListener('mousemove', moveElement);
+    document.onmouseup = function () {
+        document.removeEventListener('mousemove', moveElement);
+    };
+
+    function moveElement(event) {
+        let x = event.clientX - 148;
+        let y = event.clientY - 62;
+        rubFiftyEl.style.top = y + 'px';
+        rubFiftyEl.style.left = x + 'px';
+    };
+}; */
+
+
+
+
+/* for (i = 0; i < bills.length; i++) {
+    bills[i].onmousedown = function () {
+        console.log('click');
+    }
+} */    //dont work
+
+/* bills.forEach(function (num) {
+    num.onmousedown = function () {
+        console.log('click');
+    }
+}); */
+
+
+
+
+//затык
+// идея повесить обработчик событий на все итембоксы сразу, после чего пройтись
+//по массиву с кнопками и отключить их, после чего включить!!!!
+/* let arrItemBox = [document.querySelectorAll('.main-block-content-items-item-btn')];
+console.log(arrItemBox);
+
+function disabledBtn() {
+    let itemBox = document.querySelector('.main-block-content-items-item');
+    itemBox.addEventListener('click', event => {
+        if (event.target.classList.contains('main-block-content-items-item-btn')) {
+            arrItemBox.forEach(function (item, i, arrItemBox) {
+                item.disable = true;
+            })
+        }
+    })
+} */
+
+/* const itemBox = document.querySelector('.main-block-content-items-item');
+
+function disabledBtn() {
+    itemBox.addEventListener('click', e => {
+        if (e.target.classList.contains('main-block-content-items-item-btn')) {
+            e.target.disabled = true;
+        }
+    })
+};
+
+function turnOnBtn() {
+    itemBox.addEventListener('click', e => {
+        if (e.target.classList.contains('main-block-content-items-item-btn')) {
+            e.target.disabled = false;
+        }
+    })
+}; */
+
+
+
     </script>
 </body>
 

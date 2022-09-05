@@ -1,13 +1,14 @@
 'use strict'
 
 let moneyEl = document.getElementById('money');
-let displayInfoEl = document.querySelector('.displayInfo');
 let coin = null;
 let bills = document.querySelectorAll("img[src$='rub.jpg']");
 let billAccEl = document.querySelector('.billAcc');
 let changeBoxEl = document.querySelector('.changeBox');
 let progressBar = document.querySelector('.progress-bar');
-let balanceEl = document.querySelector('.balance')
+let balanceEl = document.querySelector('.balance');
+let getChangeBtn = document.querySelector('.getChangeButton');
+getChangeBtn.disabled = true;
 
 
 /**
@@ -20,16 +21,16 @@ let balanceEl = document.querySelector('.balance')
 function getCoffee(price, name) {
     if (moneyEl.value >= price) {
         moneyEl.value = moneyEl.value - price;
-        displayInfoEl.innerHTML = `Баланс: ${moneyEl.value} руб`;
+        balanceEl.innerHTML = `Баланс: ${moneyEl.value} руб`; //
         startProgressBar(name)
     } else {
-        displayInfoEl.innerHTML = 'На ' + name + ' недостаточно денег!';
+        balanceEl.innerHTML = 'На ' + name + ' недостаточно денег!'; //
     }
 };
 
 function startProgressBar(coffeeName) {
     let i = 0;
-    displayInfoEl.innerHTML = `<i class="bi bi-hourglass"></i> ${coffeeName} готовится...`;
+    balanceEl.innerHTML = `<i class="bi bi-hourglass"></i> ${coffeeName} готовится...`; //
     function progress() {
         progressBar.parentElement.hidden = false;
         i++;
@@ -37,10 +38,10 @@ function startProgressBar(coffeeName) {
 
         if (i == 100) {
             progressBar.parentElement.hidden = true;
-            displayInfoEl.innerHTML = `<i class="bi bi-hourglass-bottom"></i> Ваш ${coffeeName} готов! <br> Баланс: ${moneyEl.value} руб`;
+            balanceEl.innerHTML = `<i class="bi bi-hourglass-bottom"></i> Ваш ${coffeeName} готов! <br> Баланс: ${moneyEl.value} руб`; //
             clearInterval(timerId)
         } else if (i == 45) {
-            displayInfoEl.innerHTML = `<i class="bi bi-hourglass-split"></i> ${coffeeName} почти готов`;
+            balanceEl.innerHTML = `<i class="bi bi-hourglass-split"></i> ${coffeeName} почти готов`; //
         }
     };
     let timerId = setInterval(progress, 100);
@@ -49,36 +50,39 @@ function startProgressBar(coffeeName) {
 /**
  * Функция выводит в консоль значение суммы в монетах номиналом: 10, 5, 2, 1
  * рублей
- * @param {number} num принимает значение, переданное при вызове функции
+ * @param {number} num принимает значение, переданное при вызове функции (money.value)
  */
 function getChange(num) {
-    while (num != 0) {
-        let top = getRandom(50, changeBoxEl.getBoundingClientRect().height - 75);
-        let left = getRandom(50, changeBoxEl.getBoundingClientRect().width - 75);
-        if (num >= 10) {
-            coin = 10;
-            num -= coin;
-            changeBoxEl.innerHTML += `<img src="image/10rub.png" style="top: ${top}px;
-            left: ${left}px;" />`;
-        } else if (num >= 5) {
-            coin = 5;
-            num -= coin;
-            changeBoxEl.innerHTML += `<img src="image/5rub.png" style="top: ${top}px;
-            left: ${left}px;" />`;
-        } else if (num >= 2) {
-            coin = 2;
-            num -= coin;
-            changeBoxEl.innerHTML += `<img src="image/2rub.png" style="top: ${top}px;
-            left: ${left}px;" />`;
-        } else {
-            coin = 1;
-            num -= 1;
-            changeBoxEl.innerHTML += `<img src="image/1rub.png" style="top: ${top}px;
-            left: ${left}px;" />`;
-        }
-    };
-    moneyEl.value = 0;
-    displayInfoEl.innerHTML = `Баланс: ${moneyEl.value} руб`; //dont work
+    if (num) {
+        while (num != 0) {
+            let top = getRandom(50, changeBoxEl.getBoundingClientRect().height - 75);
+            let left = getRandom(50, changeBoxEl.getBoundingClientRect().width - 75);
+            if (num >= 10) {
+                coin = 10;
+                num -= coin;
+                changeBoxEl.innerHTML += `<img onclick="getCoin(this.item)" src="image/10rub.png"
+            style="top: ${top}px; left: ${left}px;" id="coinImg" class="coinImage" />`;
+            } else if (num >= 5) {
+                coin = 5;
+                num -= coin;
+                changeBoxEl.innerHTML += `<img onclick="getCoin(this.item)" src="image/5rub.png"
+            style="top: ${top}px; left: ${left}px;" id="coinImg" class="coinImage" />`;
+            } else if (num >= 2) {
+                coin = 2;
+                num -= coin;
+                changeBoxEl.innerHTML += `<img onclick="getCoin(this.item)" src="image/2rub.png"
+            style="top: ${top}px; left: ${left}px;" id="coinImg" class="coinImage" />`;
+            } else {
+                coin = 1;
+                num -= 1;
+                changeBoxEl.innerHTML += `<img onclick="getCoin(this.item)" src="image/1rub.png"
+            style="top: ${top}px; left: ${left}px;" id="coinImg" class="coinImage" />`;
+            }
+        };
+        moneyEl.value = 0;
+        balanceEl.innerHTML = `Баланс: ${moneyEl.value} руб`;
+        getChangeBtn.disabled = true;
+    }
 };
 
 
@@ -91,15 +95,13 @@ for (let bill of bills) {
         document.addEventListener('mousemove', moveElement);
 
         bill.onmouseup = function () {
-            bill.style.zIndex = 1; //не факт, что это логично
+            bill.style.zIndex = 1; //возможно стоит удалить
             document.removeEventListener('mousemove', moveElement);
 
-            //координаты купюр
             let billTop = bill.getBoundingClientRect().top;
             let billLeft = bill.getBoundingClientRect().left;
             let billRight = bill.getBoundingClientRect().right;
 
-            //координаты купюроприемника
             let billAccTop = billAccEl.getBoundingClientRect().top;
             let billAccLeft = billAccEl.getBoundingClientRect().left;
             let billAccRight = billAccEl.getBoundingClientRect().right;
@@ -116,7 +118,8 @@ for (let bill of bills) {
                 }, 245);
 
                 moneyEl.value = +moneyEl.value + +bill.dataset.billValue;
-                displayInfoEl.innerHTML = `Баланс: ${moneyEl.value} руб`;
+                balanceEl.innerHTML = `Баланс: ${moneyEl.value} руб`; //
+                getChangeBtn.disabled = false;
             }
         };
 
@@ -142,86 +145,15 @@ for (let bill of bills) {
  */
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
-}
-
-
-
-/**
- * Функция отключает встроенный drag and drop для изображений
- * @returns boolean false
- */
-/* rubFiftyEl.ondragstart = function () {
-    return false;
-}; */
-
-
-
-/**
- * Функция осуществляет drag and drop для изображения 50 руб. купюры
- */
-/* rubFiftyEl.onmousedown = function () {
-    document.addEventListener('mousemove', moveElement);
-    document.onmouseup = function () {
-        document.removeEventListener('mousemove', moveElement);
-    };
-
-    function moveElement(event) {
-        let x = event.clientX - 148;
-        let y = event.clientY - 62;
-        rubFiftyEl.style.top = y + 'px';
-        rubFiftyEl.style.left = x + 'px';
-    };
-}; */
-
-
-
-
-/* for (i = 0; i < bills.length; i++) {
-    bills[i].onmousedown = function () {
-        console.log('click');
-    }
-} */    //dont work
-
-/* bills.forEach(function (num) {
-    num.onmousedown = function () {
-        console.log('click');
-    }
-}); */
-
-
-
-
-//затык
-// идея повесить обработчик событий на все итембоксы сразу, после чего пройтись
-//по массиву с кнопками и отключить их, после чего включить!!!!
-/* let arrItemBox = [document.querySelectorAll('.main-block-content-items-item-btn')];
-console.log(arrItemBox);
-
-function disabledBtn() {
-    let itemBox = document.querySelector('.main-block-content-items-item');
-    itemBox.addEventListener('click', event => {
-        if (event.target.classList.contains('main-block-content-items-item-btn')) {
-            arrItemBox.forEach(function (item, i, arrItemBox) {
-                item.disable = true;
-            })
-        }
-    })
-} */
-
-/* const itemBox = document.querySelector('.main-block-content-items-item');
-
-function disabledBtn() {
-    itemBox.addEventListener('click', e => {
-        if (e.target.classList.contains('main-block-content-items-item-btn')) {
-            e.target.disabled = true;
-        }
-    })
 };
 
-function turnOnBtn() {
-    itemBox.addEventListener('click', e => {
-        if (e.target.classList.contains('main-block-content-items-item-btn')) {
-            e.target.disabled = false;
-        }
+
+/**
+ * Функция убирает с экрана монетку, на которую нажал пользователь
+ */
+function getCoin(item) {
+    changeBoxEl.addEventListener('click', function (event) {
+        item = event.target;
+        item.remove();
     })
-}; */
+};
