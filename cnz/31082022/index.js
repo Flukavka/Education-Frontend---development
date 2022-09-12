@@ -35,12 +35,10 @@ for (let quadrat of smallQuadratEl) {
                 bigQuadratLeft < smallQuadratLeft &&
                 bigQuadratRight > smallQuadratRight) {
                 let computedStyle = getComputedStyle(quadrat);
-                let colorEl = computedStyle.backgroundColor;
 
-                bigQuadratEl.style.backgroundColor = colorEl;
+                bigQuadratEl.style.backgroundColor = computedStyle.backgroundColor;
                 quadrat.hidden = true;
             }
         }
     }
 };
-

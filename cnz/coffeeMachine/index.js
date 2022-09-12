@@ -153,7 +153,9 @@ function getRandom(min, max) {
  */
 function getCoin(item) {
     changeBoxEl.addEventListener('click', function (event) {
-        item = event.target;
-        item.remove();
+        if (event.target.classList.contains('coinImage')) {
+            item = event.target;
+            item.remove();
+        }
     })
 };

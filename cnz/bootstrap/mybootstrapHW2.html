@@ -237,13 +237,13 @@
                         </small> -->
                     </div>
                     <div class="col-sm-6 footer-block-contentR">
-                        <form action="#" method="get">
+                        <form action="php/data.php" method="POST">
                             <h6 class="footer-block-contentR-heading">Ваше ФИО:</h6>
-                            <input type="text" placeholder="Иванов Иван Иванович">
+                            <input name="userName" type="text" placeholder="Иванов Иван Иванович">
                             <h6 class="footer-block-contentR-heading">Ваш email:</h6>
-                            <input type="email" name="" id="" placeholder="Email@mail.ru">
+                            <input type="email" name="userEmail" placeholder="Email@mail.ru">
                             <h6 class="footer-block-contentR-heading">Оставьте мне сообщение:</h6>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Текст сообщения"></textarea>
+                            <textarea name="userMessage" icols="30" rows="10" placeholder="Текст сообщения"></textarea>
                             <input class="btn" type="submit" value="Отправить">
                         </form>
                     </div>
