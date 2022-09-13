@@ -41,13 +41,13 @@
         <p>Имя:
             <span class="user"><?php echo $_SESSION["userName"]; ?></span>
             <span class="editBtn">[Изменить]</span>
-            <span class="saveBtn" hidden>[Сохранить]</span>
+            <span class="saveBtn" data-item="userName" hidden>[Сохранить]</span>
             <span class="cancelBtn" hidden>[Отменить]</span>
         </p>
         <p>Фамилия:
             <span class="user"><?= $_SESSION["userLastname"]; ?></span>
             <span class="editBtn">[Изменить]</span>
-            <span class="saveBtn" hidden>[Сохранить]</span>
+            <span class="saveBtn" data-item="userLastname" hidden>[Сохранить]</span>
             <span class="cancelBtn" hidden>[Отменить]</span>
         </p>
         <p>E-mail: <?php echo $_SESSION["email"]; ?></p>
@@ -70,13 +70,22 @@
                 editBtnEl[i].hidden = true;
             });
 
-            saveBtnEl[i].addEventListener('click', () => {
+            saveBtnEl[i].addEventListener('click', async () => {
                 user[i].innerText = document.querySelector('.inputCl').value;
                 inputValue = user[i].innerText;
 
                 saveBtnEl[i].hidden = true;
                 cancelBtnEl[i].hidden = true;
                 editBtnEl[i].hidden = false;
+
+                let formData = new FormData();
+                formData.append('value', inputValue);
+                formData.append('item', saveBtnEl[i].dataset.item);
+
+                let response = await fetch("php/lk_obr.php", {
+                    method: 'POST',
+                    body: formData
+                });
             })
 
             cancelBtnEl[i].addEventListener('click', () => {
