@@ -7,7 +7,7 @@ async function checkUser(form) {
     });
     let result = await response.text();
     if (result == 'ok') {
-        alert('Авторизация прошла успешно!');
+        location.href = 'lk.php';
     } else {
         alert('Такой пользователь не зарегистрирован!');
     }
