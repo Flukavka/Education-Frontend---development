@@ -53,6 +53,7 @@ class User
         }
     }
 
+    //Статический метод авторизации пользователя
     static function authUser($email, $password)
     {
         global $mysqli;
@@ -71,11 +72,25 @@ class User
         }
     }
 
-    static function getUser($userId) {
+    //Статический метод, получения данных пользователя
+    static function getUser($userId)
+    {
         global $mysqli;
 
-        $result = $mysqli->query("SELECT * FROM `users` WHERE `id`='$userId'");
+        $result = $mysqli->query("SELECT `userName`, `userLastname`, `email`, `id` FROM `users` WHERE `id`='$userId'");
         $result = $result->fetch_assoc();
         return json_encode($result);
+    }
+
+    //Статический метод, который запрашивает данные о пользователях и возвращает массив данных на фронт
+    static function getUsers()
+    {
+        global $mysqli;
+
+        $result = $mysqli->query("SELECT `userName`, `userLastname`, `email`, `id` FROM `users` WHERE 1"); //WHERE 1(True) получить все данные с такими полями
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
+        }
+        return json_encode($users);
     }
 }
