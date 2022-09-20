@@ -5,7 +5,10 @@ autorization.php
 lk.html
 lk.js
 lk_obr.php
-/aroma
+/aroma/package.json
+/aroma/package-lock.json
+/aroma/node_modules
+connectDb.php
 jquery-3.6.1.min.js
 /mySite
 alpine.html

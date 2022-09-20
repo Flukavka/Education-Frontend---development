@@ -58,6 +58,10 @@ class Person
         return $this->getFather()->getFather();
     }
 
+    /* function getMotherGrandmotherAtMotherLine (){
+        return $this->getMotherAtMother()->getMother();
+    } */
+
     function getInfo()
     {
         return "<h3 style='margin-top: 4px; margin-bottom: 4px; text-align: center;'>Моё гениалогическое древо</h3><br>"
@@ -115,12 +119,25 @@ class Person
     }
 }
 
+/* $tonya = new Person("Антонина","Петрова", 99); */
+
 $anatoliy = new Person("Анатолий", "Петров", 68);
 $sergey = new Person("Сергей", "Яблочкин", 66);
-$yana = new Person("Яна", "Яблочкина", 65);
+$yana = new Person("Яна", "Яблочкина", 65/* , $tonya */);
 $svetlana = new Person("Светлана", "Петрова", 62);
 $artur = new Person("Артур", "Петров", 36, $svetlana, $anatoliy);
 $anna = new Person("Анна", "Петрова", 33, $yana, $sergey);
 $artem = new Person("Артём", "Петров", 6, $anna, $artur);
 
 echo $artem->getInfo();
+
+
+/* echo $artem->getMother()->getMother()->getMother()->getName();
+echo $artem->getMotherGrandmotherAtMotherLine()->getName(); */
+
+/* echo strlen("Hello")."<br>";
+echo strlen("Хелло")."<br>";
+echo "<br>";
+echo iconv_strlen("Hello")."<br>";
+echo iconv_strlen("Хелло")."<br>"; */
+
