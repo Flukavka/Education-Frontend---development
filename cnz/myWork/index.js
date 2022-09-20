@@ -291,3 +291,15 @@ for (let i = 0; i < daysOfTheWeek.length; i++) {
 станет меньше 50. Какое число получится? Посчитайте количество итераций,
 необходимых для этого (итерация - это проход цикла), и запишите его в переменную
 num. */
+
+/*Найти максимальное число в массиве*/
+let arr1 = [9, 3, 8, 5, 11, 4];
+let max = null;
+
+for (let index = 0; index < arr1.length; index++) {
+    if (arr1[index] > arr1[index + 1]) {
+        max = arr1[index]
+    }
+}
+
+console.log(max);
